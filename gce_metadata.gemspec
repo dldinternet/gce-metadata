@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gce_metadata/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "gce_metadata"
+  gem.name          = "gce-metadata"
   gem.version       = GCEMetadata::VERSION
   gem.summary       = %q{gce-metadata provides access to GCE instance metadata}
   gem.description   = %q{gce-metadata provides access to GCE instance metadata.}

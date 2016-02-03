@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gce_metadata (0.1.0)
+    gce-metadata (0.1.0)
       awesome_print
       ec2-metadata (~> 0.2, >= 0.2.2)
 
@@ -32,7 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.10)!
-  gce_metadata!
+  gce-metadata!
   rake (~> 10.0)!
   rspec (~> 3.0)!
   rubygems-tasks (~> 0.2)!

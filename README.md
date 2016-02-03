@@ -1,49 +1,49 @@
 # gce-metadata
 
 ## Install
- $ [sudo] gem install ec2-metadata
+ $ [sudo] gem install gce-metadata
 
 ## As ruby library
-ec-metadata provides a way to access meta-data and user-data on EC2 instance. 
+gce-metadata provides a way to access meta-data and user-data on GCE instance. 
 
- Ec2Metadata[:instance_id]
- Ec2Metadata['instance_id']
- Ec2Metadata[:'instance-id']
- Ec2Metadata['instance-id']
+ GCEMetadata[:instance_id]
+ GCEMetadata['instance_id']
+ GCEMetadata[:'instance-id']
+ GCEMetadata['instance-id']
 
 If you want to specify API version, you can get data like this:
- Ec2Metadata['1.0'][:instance_id]
+ GCEMetadata['1.0'][:instance_id]
 
 If you can also get it like this:
- Ec2Metadata['1.0']['meta-data'][:instance_id]
+ GCEMetadata['1.0']['meta-data'][:instance_id]
 
 For more detail, see also:
-http://github.com/akm/ec2-metadata/blob/master/spec/introduction_spec.rb
+http://github.com/akm/gce-metadata/blob/master/spec/introduction_spec.rb
 
 
 ## As a command
-ec2-metadata shows various meta-data and user-data
- $ ec2-metadata
+gce-metadata shows various meta-data and user-data
+ $ gce-metadata
 
 For more detail, type 
- $ ec2-metadata -h
+ $ gce-metadata -h
 
 
 ## Dummy YAML
-If you want to access meta-data or user-data not on EC2 Instance like on it,
+If you want to access meta-data or user-data not on GCE Instance like on it,
 make one of these files
- ./config/ec2_metadata.yml
- ./ec2_metadata.yml
- ~/ec2_metadata.yml
- /etc/ec2_metadata.yml
+ ./config/gce_metadata.yml
+ ./gce_metadata.yml
+ ~/gce_metadata.yml
+ /etc/gce_metadata.yml
 
-Dummy YAML file must be like output of ec2-metadata on EC2 instance.
-You can export it on EC2 instance like this:
- $ ec2-medatata > ec2_metadata.yml
- $ cp ec2_metadata.yml /path/to/dir/for/non/ec2/instance
+Dummy YAML file must be like output of gce-metadata on GCE instance.
+You can export it on GCE instance like this:
+ $ gce-medatata > gce_metadata.yml
+ $ cp gce_metadata.yml /path/to/dir/for/non/gce/instance
 
-Or if you don't have EC2 instance, you can get an example by
- $ ec2-metadata -d
+Or if you don't have GCE instance, you can get an example by
+ $ gce-metadata -d
 
 
 ## Note on Patches/Pull Requests

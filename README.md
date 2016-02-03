@@ -1,2 +1,61 @@
-gce_metadata
-============
+# gce-metadata
+
+## Install
+ $ [sudo] gem install ec2-metadata
+
+## As ruby library
+ec-metadata provides a way to access meta-data and user-data on EC2 instance. 
+
+ Ec2Metadata[:instance_id]
+ Ec2Metadata['instance_id']
+ Ec2Metadata[:'instance-id']
+ Ec2Metadata['instance-id']
+
+If you want to specify API version, you can get data like this:
+ Ec2Metadata['1.0'][:instance_id]
+
+If you can also get it like this:
+ Ec2Metadata['1.0']['meta-data'][:instance_id]
+
+For more detail, see also:
+http://github.com/akm/ec2-metadata/blob/master/spec/introduction_spec.rb
+
+
+## As a command
+ec2-metadata shows various meta-data and user-data
+ $ ec2-metadata
+
+For more detail, type 
+ $ ec2-metadata -h
+
+
+## Dummy YAML
+If you want to access meta-data or user-data not on EC2 Instance like on it,
+make one of these files
+ ./config/ec2_metadata.yml
+ ./ec2_metadata.yml
+ ~/ec2_metadata.yml
+ /etc/ec2_metadata.yml
+
+Dummy YAML file must be like output of ec2-metadata on EC2 instance.
+You can export it on EC2 instance like this:
+ $ ec2-medatata > ec2_metadata.yml
+ $ cp ec2_metadata.yml /path/to/dir/for/non/ec2/instance
+
+Or if you don't have EC2 instance, you can get an example by
+ $ ec2-metadata -d
+
+
+## Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+## Copyright
+
+Copyright (c) 2015 DLD Internet, Inc. See LICENSE for details.

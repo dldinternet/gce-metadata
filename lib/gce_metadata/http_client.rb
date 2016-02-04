@@ -14,7 +14,7 @@ module GCEMetadata
     attr_accessor :read_timeout_sec
     
     def get(path)
-      logging("get(#{path.inspect})") do
+      logging("http_get(#{path.inspect})") do
         http = Net::HTTP.new(DEFAULT_HOST)
         http.open_timeout = self.open_timeout_sec
         http.read_timeout = self.read_timeout_sec

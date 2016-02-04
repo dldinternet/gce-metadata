@@ -53,15 +53,16 @@ module GCEMetadata
 
 		def logging(msg)
 			@indent ||= 0
-			disp = (" " * @indent) << msg
-			puts(disp) if @debug
 			@indent += 2
+			disp = (" " * @indent) << msg
+			#puts(disp) if @debug
 			begin
 				result = yield
+				puts "#{disp} => #{result.inspect}" if @debug
+				#puts "#{(" " * @indent)}  #{result.inspect}" if @debug
 			ensure
 				@indent -= 2
 			end
-			puts "#{disp} => #{result.inspect}" if @debug
 			result
 		end
 	end

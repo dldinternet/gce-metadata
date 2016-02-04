@@ -105,12 +105,14 @@ module GCEMetadata
     end
 
     def to_hash
-      keys.inject({}) do |dest, key|
-        value = get(key)
-        key = key.sub(/\/$/, '')
-        dest[key] = value.respond_to?(:to_hash) ? value.to_hash : value
-        dest
-      end
+			logging("#{class_name}.to_hash(#{@path})") do
+				keys.inject({}) do |dest, key|
+					value = get(key)
+					key = key.sub(/\/$/, '')
+					dest[key] = value.respond_to?(:to_hash) ? value.to_hash : value
+					dest
+				end
+			end
     end
 
     def from_hash(hash)

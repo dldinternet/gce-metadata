@@ -1,5 +1,9 @@
 # gce-metadata
 
+## Credit
+
+Full credit and attribution to http://github.com/akm/ec2-metadata on which this gem is based 
+
 ## Install
  $ [sudo] gem install gce-metadata
 
@@ -16,9 +20,6 @@ If you want to specify API version, you can get data like this:
 
 If you can also get it like this:
  GCEMetadata['1.0']['meta-data'][:instance_id]
-
-For more detail, see also:
-http://github.com/akm/gce-metadata/blob/master/spec/introduction_spec.rb
 
 
 ## As a command

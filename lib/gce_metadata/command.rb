@@ -32,7 +32,7 @@ module GCEMetadata
           v = (api_version || '').strip
           keys = GCEMetadata.instance.keys
           unless keys.include?(v.gsub(%r'([^/])$', '\1/'))
-						puts("#{self.class.name}.instance.keys\n#{keys.ai}")
+						puts("#{class_name}.instance.keys\n#{keys.ai}")
             raise ArgumentError, "API version must be one of #{GCEMetadata.instance.keys.inspect} but was #{api_version.inspect}"
           end
           show_yaml_path_if_loaded

@@ -9,7 +9,11 @@ module GCEMetadata
     def initialize(path, default_child_key = nil)
       @path = path
       @default_child_key = default_child_key
-    end
+		end
+
+		def class_name
+			self.class.name.gsub(/^GCEMetadata/, '').gsub(/^:+/,'')
+		end
 
     def children
       @children ||= {}
@@ -34,7 +38,7 @@ module GCEMetadata
     alias_method :keys, :child_keys
 
     def get(child_key)
-      logging("#{self.class.name}.get(#{child_key.inspect})") do
+      logging("#{class_name}.get(#{child_key.inspect})") do
         child_key = GCEMetadata.formalize_key(child_key)
         if children.has_key?(child_key)
           result = children[child_key]
@@ -85,8 +89,6 @@ module GCEMetadata
         Base.new("#{path}#{child_key}")
       end
     end
-
-    alias_method :[], :get
 
     def default_child
       return @default_child if @default_child

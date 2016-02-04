@@ -18,6 +18,9 @@ module GCEMetadata
 	extend HttpClient
 
 	class << self
+		attr_accessor :debug
+		@debug = false
+
 		def instance
 			@instance ||= Root.new['computeMetadata']
 		end
@@ -51,14 +54,14 @@ module GCEMetadata
 		def logging(msg)
 			@indent ||= 0
 			disp = (" " * @indent) << msg
-			# puts(disp)
+			puts(disp) if @debug
 			@indent += 2
 			begin
 				result = yield
 			ensure
 				@indent -= 2
 			end
-			# puts "#{disp} => #{result.inspect}"
+			puts "#{disp} => #{result.inspect}" if @debug
 			result
 		end
 	end

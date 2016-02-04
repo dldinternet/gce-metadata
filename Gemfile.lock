@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gce-metadata (0.2.2)
+    gce-metadata (0.2.3)
       awesome_print
       ec2-metadata (~> 0.2, >= 0.2.2)
 

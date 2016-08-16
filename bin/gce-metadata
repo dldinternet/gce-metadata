@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'gce_metadata'
+require 'yaml'
+require 'optparse'
+
+options = {:api_version => 'v1'}
+
+ARGV.options do |o|
+  o.banner = 'Usage: gce-metadata [options]'
+
+  o.on("-a [api-version]", '--api-version',
+       "Specify an API version. default is 'v1'.") do |v|
+    options[:api_version] = v
+  end
+
+  o.on("-V", '--display-api-versions',
+       "Display API versions and quit.") do
+    GCEMetadata::Command.show_api_versions
+    exit
+  end
+
+  o.on("-d", '--display-dummy-yaml',
+       "Display a dummy YAML and quit.") do
+    GCEMetadata::Command.show_dummy_yaml
+    exit
+  end
+
+  o.separator("General Options:")
+
+  o.on("-v", '--version', "Show the version number.") do
+    puts("gce-metadata " << GCEMetadata::VERSION)
+    exit
+  end
+
+  o.on("-h", '--help', "Show this help message."){ puts o; exit}
+
+  o.parse!
+end
+
+GCEMetadata::Command.show(options[:api_version])
+

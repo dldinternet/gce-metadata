@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     gce-metadata (0.2.4)
-      awesome_print
+      awesome_print (>= 1.7.0, < 1.8)
       ec2-metadata (~> 0.2, >= 0.2.2)
 
 GEM

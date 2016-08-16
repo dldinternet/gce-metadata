@@ -29,8 +29,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 							'ec2-metadata', '~> 0.2', '>= 0.2.2'
-	gem.add_dependency              'awesome_print'                       #, '~> 1.2'
+  gem.add_dependency 							'ec2-metadata',                       '~> 0.2', '>= 0.2.2'
+  gem.add_dependency              'awesome_print',                      '>= 1.7.0', '< 1.8'
 
   gem.add_development_dependency 	'bundler', '~> 1.10'
   gem.add_development_dependency 	'rake', '~> 10.0'
